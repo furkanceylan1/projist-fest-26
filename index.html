@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1B75BB">
+<meta name="description" content="İSTEK Kemal Atatürk Okulları — PROJİST Fest '26 Proje Sunum Takvimi">
+<title>PROJİST Fest '26 — Sunum Takvimi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --istek-blue: #1B75BB;
+    --istek-blue-dark: #0F4F82;
+    --istek-blue-darker: #083559;
+    --istek-blue-light: #4A9BD4;
+    --istek-blue-faded: #E8F2FA;
+    --projist-gold: #F4A923;
+    --projist-gold-light: #FFC857;
+    --sunum: #10B981;
+    --sunum-bg: #ECFDF5;
+    --sunum-dark: #047857;
+    --izleyici: #F59E0B;
+    --izleyici-bg: #FFFBEB;
+    --izleyici-dark: #B45309;
+    --ink: #0F172A;
+    --ink-soft: #475569;
+    --ink-faint: #94A3B8;
+    --line: #E2E8F0;
+    --card: #FFFFFF;
+    --bg: #F8FAFC;
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 20px 40px -10px rgba(15, 23, 42, 0.15);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --radius-lg: 22px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ---------- HEADER (kurumsal mavi) ---------- */
+  .hero {
+    background:
+      radial-gradient(1200px 600px at -10% -20%, rgba(74,155,212,.5), transparent 60%),
+      radial-gradient(900px 500px at 120% 20%, rgba(244,169,35,.18), transparent 60%),
+      linear-gradient(135deg, var(--istek-blue) 0%, var(--istek-blue-dark) 60%, var(--istek-blue-darker) 100%);
+    color: white;
+    padding: 28px 20px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 25% 80%, rgba(255,255,255,.08) 0, transparent 30%),
+      radial-gradient(circle at 80% 30%, rgba(255,255,255,.05) 0, transparent 25%);
+    pointer-events: none;
+  }
+
+  .hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
+
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    gap: 12px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    opacity: 0.95;
+  }
+  .brand-mark {
+    width: 32px; height: 32px;
+    background: white;
+    border-radius: 8px;
+    display: grid; place-items: center;
+    color: var(--istek-blue-dark);
+    font-weight: 800;
+    font-size: 14px;
+  }
+
+  .fest-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(244,169,35,0.18);
+    border: 1px solid rgba(244,169,35,0.4);
+    color: var(--projist-gold-light);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+  .fest-badge::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--projist-gold-light);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--projist-gold-light);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .hero h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(34px, 9vw, 56px);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -1.5px;
+    margin-bottom: 12px;
+  }
+  .hero h1 .accent {
+    color: var(--projist-gold-light);
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .hero-sub {
+    font-size: clamp(14px, 3.6vw, 17px);
+    opacity: 0.88;
+    max-width: 600px;
+    line-height: 1.55;
+  }
+
+  /* ---------- NOW PLAYING / CURRENT LESSON BAR ---------- */
+  .now-bar {
+    margin: 28px auto 0;
+    max-width: 760px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: var(--radius);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: white;
+    font-size: 14px;
+  }
+  .now-dot {
+    width: 10px; height: 10px;
+    background: #4ade80;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px #4ade80;
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  .now-text strong { font-weight: 700; }
+  .now-text { line-height: 1.4; }
+
+  /* ---------- MAIN CONTAINER ---------- */
+  main {
+    max-width: 760px;
+    margin: -50px auto 0;
+    padding: 0 16px 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section {
+    background: var(--card);
+    border-radius: var(--radius-lg);
+    padding: 24px 20px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 20px;
+  }
+
+  .section-label {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--istek-blue);
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 18px;
+    color: var(--ink);
+  }
+
+  /* ---------- ARAMA ---------- */
+  .search {
+    position: relative;
+  }
+  .search input {
+    width: 100%;
+    padding: 14px 16px 14px 46px;
+    font-size: 16px;
+    font-family: inherit;
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    background: #F8FAFC;
+    color: var(--ink);
+    outline: none;
+    transition: all 0.2s;
+  }
+  .search input:focus {
+    border-color: var(--istek-blue);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(27,117,187,0.1);
+  }
+  .search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-faint);
+    pointer-events: none;
+  }
+  .search-results {
+    margin-top: 12px;
+    max-height: 280px;
+    overflow-y: auto;
+    border-radius: 12px;
+    display: none;
+  }
+  .search-results.has-results { display: block; }
+  .search-result {
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .search-result:hover, .search-result:active {
+    border-color: var(--istek-blue);
+    background: var(--istek-blue-faded);
+  }
+  .sr-num {
+    background: var(--istek-blue);
+    color: white;
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: grid; place-items: center;
+    font-weight: 700;
+    flex-shrink: 0;
+    font-size: 14px;
+  }
+  .sr-body { flex: 1; min-width: 0; }
+  .sr-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .sr-where {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+
+  /* ---------- CLASS GRID ---------- */
+  .class-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  @media (min-width: 480px) {
+    .class-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  }
+  @media (min-width: 680px) {
+    .class-grid { grid-template-columns: repeat(6, 1fr); }
+  }
+
+  .class-card {
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--istek-blue-faded) 0%, white 100%);
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+  }
+  .class-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--istek-blue), var(--istek-blue-light));
+    opacity: 0.7;
+  }
+  .class-card:hover, .class-card:active {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--istek-blue);
+  }
+  .class-card .name {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(20px, 5.5vw, 26px);
+    font-weight: 800;
+    color: var(--istek-blue-dark);
+    letter-spacing: -0.5px;
+  }
+  .class-card .badge {
+    position: absolute;
+    bottom: 8px;
+    font-size: 9.5px;
+    font-weight: 600;
+    color: var(--ink-faint);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  /* ---------- DETAIL PAGE (class) ---------- */
+  .detail-page {
+    display: none;
+  }
+  .detail-page.active { display: block; }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: white;
+    border: 1.5px solid var(--line);
+    color: var(--istek-blue-dark);
+    padding: 10px 16px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.15s;
+  }
+  .back-btn:hover, .back-btn:active {
+    background: var(--istek-blue);
+    color: white;
+    border-color: var(--istek-blue);
+  }
+
+  .detail-header {
+    background: linear-gradient(135deg, var(--istek-blue) 0%, var(--istek-blue-darker) 100%);
+    color: white;
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .detail-header::after {
+    content: "";
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(244,169,35,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .detail-header .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .detail-header h2 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .detail-header p {
+    font-size: 14px;
+    opacity: 0.85;
+    max-width: 90%;
+  }
+
+  /* ---------- LESSON BLOCKS ---------- */
+  .lesson {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1.5px solid var(--line);
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  .lesson.is-now {
+    border-color: var(--sunum);
+    box-shadow: 0 0 0 4px rgba(16,185,129,0.12), var(--shadow-md);
+  }
+  .lesson-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, var(--istek-blue-faded), #F0F8FF);
+    border-bottom: 1.5px solid var(--line);
+  }
+  .lesson-head .left {
+    display: flex; flex-direction: column;
+  }
+  .lesson-name {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--istek-blue-dark);
+    letter-spacing: -0.3px;
+  }
+  .lesson-time {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  .now-pill {
+    background: var(--sunum);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .now-pill::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: white;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+  .lesson-body { padding: 16px; }
+
+  /* role section (Sunum / İzleyici) */
+  .role-section { margin-bottom: 14px; }
+  .role-section:last-child { margin-bottom: 0; }
+  .role-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+  .role-label.sunum { background: var(--sunum-bg); color: var(--sunum-dark); }
+  .role-label.izleyici { background: var(--izleyici-bg); color: var(--izleyici-dark); }
+
+  .group-list {
+    display: grid;
+    gap: 8px;
+  }
+  .group-card {
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: white;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    transition: all 0.15s;
+  }
+  .group-card.sunum { background: var(--sunum-bg); border-color: rgba(16,185,129,0.25); }
+  .group-card.izleyici { background: var(--izleyici-bg); border-color: rgba(245,158,11,0.25); }
+
+  .group-num {
+    flex-shrink: 0;
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: grid; place-items: center;
+    font-weight: 800;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 15px;
+    color: white;
+  }
+  .group-card.sunum .group-num { background: var(--sunum); }
+  .group-card.izleyici .group-num { background: var(--izleyici); }
+
+  .group-body { flex: 1; min-width: 0; }
+  .group-brans {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 2px;
+  }
+  .group-students {
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.4;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .group-teacher {
+    font-size: 12px;
+    color: var(--ink-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .group-teacher::before {
+    content: "👤";
+    font-size: 10px;
+  }
+  .group-teacher b { color: var(--ink); font-weight: 700; }
+
+  /* Değerlendir butonu */
+  .eval-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: white;
+    color: var(--sunum-dark);
+    border: 1.5px solid var(--sunum);
+    padding: 7px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: inherit;
+    text-decoration: none;
+    margin-top: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.2px;
+  }
+  .eval-btn:hover, .eval-btn:active {
+    background: var(--sunum);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(16,185,129,0.3);
+  }
+  .eval-btn svg { width: 14px; height: 14px; }
+  .eval-btn.disabled {
+    background: transparent;
+    color: var(--ink-faint);
+    border-color: var(--line);
+    border-style: dashed;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Bilgi notu — formlar henüz aktif değilse */
+  .eval-info {
+    background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+    border: 1.5px solid #FDE68A;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: #78350F;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+  .eval-info::before {
+    content: "📝";
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    text-align: center;
+    padding: 30px 20px 50px;
+    color: var(--ink-faint);
+    font-size: 12.5px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  footer .istek-mark {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    color: var(--istek-blue-dark);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+
+  /* Animations */
+  .fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* hide on detail page */
+  body.detail-active .home-page { display: none; }
+  body.detail-active .hero h1,
+  body.detail-active .hero-sub,
+  body.detail-active .now-bar { display: none; }
+  body.detail-active .hero { padding-bottom: 20px; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div class="brand">
+        <span class="brand-mark">İ</span>
+        <span>İSTEK Kemal Atatürk Okulları</span>
+      </div>
+      <span class="fest-badge">PROJİST FEST '26</span>
+    </div>
+    <h1>Proje Sunum<br><span class="accent">Takvimi</span></h1>
+    <p class="hero-sub">Her sınıfın ders ders sunum ve izleyici planı. Sınıfını seç, grup ve öğretmen bilgilerini gör.</p>
+    <div class="now-bar" id="nowBar">
+      <span class="now-dot"></span>
+      <div class="now-text" id="nowText">Yükleniyor…</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ANA SAYFA -->
+  <div class="home-page">
+
+    <section class="section">
+      <div class="section-label">Hızlı Bulma</div>
+      <div class="section-title">Kim, nerede, ne zaman?</div>
+      <div class="search">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="searchInput" placeholder="İsim, grup no veya öğretmen yaz…" autocomplete="off">
+      </div>
+      <div class="search-results" id="searchResults"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Sınıflar</div>
+      <div class="section-title">Sınıfını seç</div>
+      <div class="class-grid" id="classGrid"></div>
+    </section>
+
+  </div>
+
+  <!-- DETAY SAYFASI (Sınıf) -->
+  <div class="detail-page" id="detailPage">
+    <button class="back-btn" onclick="goHome()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Sınıflara dön
+    </button>
+    <div id="detailContent" style="margin-top:14px;"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="istek-mark">İSTEK KEMAL ATATÜRK OKULLARI</div>
+  <div>PROJİST Fest '26 · Proje Sunum Programı</div>
+</footer>
+
+<script>
+const DATA = {"groups":{"1":{"ogrenciler":"Yavuz Selim Özer, Arman Turan, Bora Çevik","brans":"Matematik","ogretmen":"Deniz Mercan"},"2":{"ogrenciler":"Berra Kap, Poyraz Soylu, Ali Alexander Williams","brans":"Türk Dili Edebiyatı","ogretmen":"Deniz Mercan"},"3":{"ogrenciler":"Azra Beyazay, Güneş İkiz, Deniz Atikler","brans":"Tarih","ogretmen":"Deniz Mercan"},"4":{"ogrenciler":"Elif Eryüksel, Eda Işık, Sümeyye Sare Güneş","brans":"Tarih","ogretmen":"Nazan Özdere"},"5":{"ogrenciler":"Duru Hacıbektaşoğlu, Ayşe Beyza Cansız, Zeynep Kökel","brans":"Tarih","ogretmen":"Nazan Özdere"},"6":{"ogrenciler":"Ali Dumlu, Devrim Çınar Güler, Mehmet Aslan Şengül","brans":"Coğrafya","ogretmen":"Nazan Özdere"},"7":{"ogrenciler":"Deniz Mert Atayurt, Ege Aybars Önal, Ege Arabacı","brans":"Fizik","ogretmen":"Necibe Başboğa"},"8":{"ogrenciler":"Berin Polat, Yağmur Özkaya, Esma Yasak","brans":"Kimya","ogretmen":"Necibe Başboğa"},"9":{"ogrenciler":"Tuna Çiftçi, Mustafa Yağız Yılmaz, Çağan Arda Duran","brans":"Kimya","ogretmen":"Necibe Başboğa"},"10":{"ogrenciler":"Aden Vardar, Kuzey Şen, Ata Altıntaş","brans":"Kimya","ogretmen":"Aylin Çelik"},"11":{"ogrenciler":"Eda Karakale, Ayşe Duru Koç, Ayşe Hüma Demir","brans":"Kimya","ogretmen":"Aylin Çelik"},"12":{"ogrenciler":"Melis Önder, Eylül Sultan Hava, Karya Yılmaz","brans":"Biyoloji","ogretmen":"Aylin Çelik"},"13":{"ogrenciler":"Nil Deniz Tüfekçi, Ada Balcı, Asya Sezen","brans":"Biyoloji","ogretmen":"Nisa Nur Yağız"},"14":{"ogrenciler":"Ali Şefkatlioğlu, Kenan Tepe","brans":"Bilişim Tek. ve Yazılım","ogretmen":"Nisa Nur Yağız"},"15":{"ogrenciler":"Mehmet Kemal Özkul, Yağız Eyüp Uçan, Ali Emir Tuzuner","brans":"Bilişim Tek. ve Yazılım","ogretmen":"Nisa Nur Yağız"},"16":{"ogrenciler":"Mustafa Kemal Sert, Mehmet Dalokay Bayık, İsmail Namık Babal","brans":"Bilişim Tek. ve Yazılım","ogretmen":"Furkan Ceylan"},"17":{"ogrenciler":"Umut Güler, Doruk Deniz, Mehmet Uluç Kaplan","brans":"Bilişim Tek. ve Yazılım","ogretmen":"Furkan Ceylan"},"18":{"ogrenciler":"Duru Caner, Pınar Meriç, Mert Kavlakoğlu","brans":"Matematik","ogretmen":"Furkan Ceylan"},"19":{"ogrenciler":"Kadir Efe Kozanhan, İsmail Tuan Dal, Kaan Kılıçarslan","brans":"Matematik","ogretmen":"Hatice Ağaçarası"},"20":{"ogrenciler":"Ahmet Arda Gülbaz, Kaya Dayıoğlu, Emir Victor Ayoub","brans":"Matematik","ogretmen":"Hatice Ağaçarası"},"21":{"ogrenciler":"Burak Erbaş, Aslan Gürcan Gür","brans":"Matematik","ogretmen":"Hatice Ağaçarası"},"22":{"ogrenciler":"Cenk Tatar, Kemal Sarp Özkan, Kemal Emir Barutcuoğlu","brans":"Türk Dili Edebiyatı","ogretmen":"Meltem Arslan"},"23":{"ogrenciler":"Asal Yusufzade, Begüm Çadırcıoğlu","brans":"Türk Dili Edebiyatı","ogretmen":"Meltem Arslan"},"24":{"ogrenciler":"Ecrin Su Bozkurt, Yaren Naz Demir, Ateş Elgin","brans":"Türk Dili Edebiyatı","ogretmen":"Meltem Arslan"},"25":{"ogrenciler":"Kar Erkaya, Alp Kerem Özer, Poyraz Fındıkoğlu","brans":"Türk Dili Edebiyatı","ogretmen":"Nihal Suyolcu"},"26":{"ogrenciler":"Ömer Çağkan Han, Tuana Atbaş, Berke Öksoy, Cemre Boz","brans":"Türk Dili Edebiyatı","ogretmen":"Nihal Suyolcu"},"27":{"ogrenciler":"Irmak Üstün, Yağmur Şardan, Zeynep Ada Sezgin","brans":"Tarih","ogretmen":"Nihal Suyolcu"},"28":{"ogrenciler":"Alp Büyükşengür, Anıl Kerem Şahin, Arda Key","brans":"Tarih","ogretmen":"Burcu Demir"},"29":{"ogrenciler":"Umay Karslı, Yasemin Isıgöllü, Derin Mavi Öztürk","brans":"Tarih","ogretmen":"Burcu Demir"},"30":{"ogrenciler":"Ali Arslangündoğdu, Karya Şahin, Doğa Mesudoğlu","brans":"Coğrafya","ogretmen":"Burcu Demir"},"31":{"ogrenciler":"Aslı Ece Kuray, Ece Turhan, Ekin Rüzgar Yüksel","brans":"Fizik","ogretmen":"Burcu Bıyıkoğlu"},"32":{"ogrenciler":"Kuzey Karaca, Altay Aryan Gül, Berzan Baran","brans":"Fizik","ogretmen":"Burcu Bıyıkoğlu"},"33":{"ogrenciler":"Tuna Eyigüngör, Emre Yavaş, Deniz Soylu","brans":"Fizik","ogretmen":"Burcu Bıyıkoğlu"},"34":{"ogrenciler":"Aslı Akbaş, Deniz İnce, Muhammed İkbal Aydın","brans":"Kimya","ogretmen":"Nilay Olkan"},"35":{"ogrenciler":"Mustafa Ege Atalay, Kamil Hira Güneş, Ömer Efe Taş","brans":"Kimya","ogretmen":"Nilay Olkan"},"36":{"ogrenciler":"Zeynep Karaçam, Yağmur Al","brans":"Biyoloji","ogretmen":"Nilay Olkan"},"37":{"ogrenciler":"Cem Köseliören, Birol Engin, Ali Berk Polat","brans":"Felsefe","ogretmen":"Cem Onur Gülal"},"38":{"ogrenciler":"Ali Hıdır Akkiraz, Arel Can Özgüler","brans":"Felsefe","ogretmen":"Cem Onur Gülal"},"39":{"ogrenciler":"Duru Var, Ela Doğan, Asya Kazanç","brans":"Felsefe","ogretmen":"Cem Onur Gülal"},"40":{"ogrenciler":"Hazal Bakır, Can Boran Tekin, Birce Güngör","brans":"Felsefe","ogretmen":"Utku Bingül"},"41":{"ogrenciler":"Ayda Sarpyıldırım, Ela Ergenoğlu","brans":"Matematik","ogretmen":"Utku Bingül"},"42":{"ogrenciler":"Ecem Kalyoncu, Yağmur Tözge","brans":"Matematik","ogretmen":"Utku Bingül"},"43":{"ogrenciler":"Selin Osman, Beril Mudun, Elif Hasırcıoğlu","brans":"Matematik","ogretmen":"Murat Özen"},"44":{"ogrenciler":"Alya Dagistani, Öykü Özaltay","brans":"Matematik","ogretmen":"Murat Özen"},"45":{"ogrenciler":"Duru İpek Sözbir, Eda Duru Bilbay, Kıvanç Karakale","brans":"Matematik","ogretmen":"Murat Özen"},"46":{"ogrenciler":"Emir Çavdar, Poyraz Pala, Ares Erdoğan","brans":"Matematik","ogretmen":"Ayşenur Tan"},"47":{"ogrenciler":"Esin İnal, Yağmur Albaş, Serra Yasak","brans":"Türk Dili Edebiyatı","ogretmen":"Ayşenur Tan"},"48":{"ogrenciler":"Nehir Ada Güntekin, İrem Naz Yörük","brans":"Türk Dili Edebiyatı","ogretmen":"Ayşenur Tan"},"49":{"ogrenciler":"Emir Ersal, Alya Yılmaz, Atilla Kratzer","brans":"Türk Dili Edebiyatı","ogretmen":"Gazel Göğebakan"},"50":{"ogrenciler":"Mert Aksüs, Alp Ataseven, Alaz Can Arslan","brans":"Türk Dili Edebiyatı","ogretmen":"Gazel Göğebakan"},"51":{"ogrenciler":"Selim Sarı, Ahmet Demirezer, Can Kadagan","brans":"Tarih","ogretmen":"Gazel Göğebakan"},"52":{"ogrenciler":"Ayaz Gençer, Güney Erdoğan, Rafet Şan Top","brans":"Tarih","ogretmen":"Nazan Özdere"},"53":{"ogrenciler":"İrem Nur Kaçar, Aren Akbaşlı","brans":"Tarih","ogretmen":"Nazan Özdere"},"54":{"ogrenciler":"Beyza Ruayercan, Işıl Nalbat","brans":"Coğrafya","ogretmen":"Nazan Özdere"},"55":{"ogrenciler":"Ceren Kutlar, Beren Örnek, Duru Aydemir","brans":"Coğrafya","ogretmen":"Türkan Doğan"},"56":{"ogrenciler":"Poyraz Dönmez, Recep Emir Güman, Volkan Toygar","brans":"Coğrafya","ogretmen":"Türkan Doğan"},"57":{"ogrenciler":"Elif Yıldız, İlayda Gökduman, Melisa Yavuz","brans":"Coğrafya","ogretmen":"Türkan Doğan"},"58":{"ogrenciler":"Kerim Enes Ocak, Utku Öngel, Yiğit Hoşavcı, Elif Karakaya","brans":"Fizik","ogretmen":"Burcu Tahoğlu"},"59":{"ogrenciler":"Doruk Yılmazkaraosmanoğlu, Ela Aktaş, Rüzgar Yurdakul","brans":"Fizik","ogretmen":"Burcu Tahoğlu"},"60":{"ogrenciler":"Mert Eren Tak, Emir Mert Özer, Mustafa Eren Akgül","brans":"Fizik","ogretmen":"Burcu Tahoğlu"},"61":{"ogrenciler":"Yiğit Akın, Ömer Alp Özer","brans":"Kimya","ogretmen":"Buket Aksoy"},"62":{"ogrenciler":"Poyraz Anut, Ali Sinan Gür, Leo Can Ali","brans":"Biyoloji","ogretmen":"Buket Aksoy"},"63":{"ogrenciler":"Ege Yetkin, Deniz Tepsi, Efe Soylu","brans":"Biyoloji","ogretmen":"Nilay Olkan"},"64":{"ogrenciler":"Yiğit Güngör, Efe Özalp","brans":"Biyoloji","ogretmen":"Nilay Olkan"}},"classes":{"9A":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[1,2,3],"izleyici":[28,29,30]},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[10,11,12],"izleyici":[1,2,3]},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[19,20,21],"izleyici":[10,11,12]},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[28,29,30],"izleyici":[19,20,21]}],"9B":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[4,5,6],"izleyici":[31,32,33]},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[13,14,15],"izleyici":[4,5,6]},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[22,23,24],"izleyici":[4,5,6]},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[31,32,33],"izleyici":[22,23,24]}],"10A":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[7,8,9],"izleyici":[34,35,36]},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[16,17,18],"izleyici":[7,8,9]},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[25,26,27],"izleyici":[16,17,18]},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[34,35,36],"izleyici":[25,26,27]}],"10B":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[10,11,12],"izleyici":[19,20,21]},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[19,20,21],"izleyici":[28,29,30]},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[28,29,30],"izleyici":[1,2,3]},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[1,2,3],"izleyici":[10,11,12]}],"10C":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[13,14,15],"izleyici":[22,23,24]},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[22,23,24],"izleyici":[31,32,33]},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[31,32,33],"izleyici":[4,5,6]},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[4,5,6],"izleyici":[13,14,15]}],"Hz":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[16,17,18],"izleyici":[25,26,27]},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[25,26,27],"izleyici":[34,35,36]},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[34,35,36],"izleyici":[7,8,9]},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[7,8,9],"izleyici":[16,17,18]}],"11A":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[37,38,39],"izleyici":[58,59,60]},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[46,47,48],"izleyici":[37,38,39]},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[49,50,51],"izleyici":[46,47,48]},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[58,59,60],"izleyici":[49,50,51]}],"11B":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[46,47,48],"izleyici":[49,50,51]},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[49,50,51],"izleyici":[58,59,60]},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[58,59,60],"izleyici":[37,38,39]},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[37,38,39],"izleyici":[46,47,48]}],"11C":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[40,41,42],"izleyici":[61,62]},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[43,44,45],"izleyici":[40,41,42]},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[52,53,54],"izleyici":[43,44,45]},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[61,62],"izleyici":[52,53,54]}],"9FL":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[43,44,45],"izleyici":[52,53,54]},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[52,53,54],"izleyici":[61,62]},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[61,62],"izleyici":[40,41,42]},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[40,41,42],"izleyici":[43,44,45]}],"10FL":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[43,44,45],"izleyici":[63,64]},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[46,47,48],"izleyici":[43,44,45]},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[55,56,57],"izleyici":[46,47,48]},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[63,64],"izleyici":[55,56,57]}],"11FL":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[46,47,48],"izleyici":[55,56,57]},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[55,56,57],"izleyici":[63,64]},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[63,64],"izleyici":[43,44,45]},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[43,44,45],"izleyici":[46,47,48]}]},"lesson_times":{"2. Ders":"09:10 – 09:50","3. Ders":"10:00 – 10:40","4. Ders":"10:50 – 11:30","5. Ders":"11:40 – 12:20","6. Ders":"13:00 – 13:40","7. Ders":"13:45 – 14:25","8. Ders":"14:30 – 15:05","9. Ders":"15:10 – 15:45"}};
+
+const CLASS_ORDER = ["9A","9B","10A","10B","10C","Hz","11A","11B","11C","9FL","10FL","11FL"];
+const CLASS_LABELS = {
+  "9A":"9. Sınıf A", "9B":"9. Sınıf B",
+  "10A":"10. Sınıf A","10B":"10. Sınıf B","10C":"10. Sınıf C",
+  "Hz":"Hazırlık",
+  "11A":"11. Sınıf A","11B":"11. Sınıf B","11C":"11. Sınıf C",
+  "9FL":"9. Sınıf FL","10FL":"10. Sınıf FL","11FL":"11. Sınıf FL"
+};
+
+// =====================================================
+// GOOGLE FORM LİNKLERİ — sınıf bazında bir form per sınıf
+// Boş bırakılan linkler için "Yakında" yazısı çıkar.
+// Form hazır olunca tırnaklar arasına link yapıştır:
+//   "9A": "https://forms.gle/XXXX"
+// =====================================================
+const FORM_LINKS = {
+  "9A":   "",
+  "9B":   "",
+  "10A":  "",
+  "10B":  "",
+  "10C":  "",
+  "Hz":   "",
+  "11A":  "",
+  "11B":  "",
+  "11C":  "",
+  "9FL":  "",
+  "10FL": "",
+  "11FL": "",
+};
+
+// ---------- RENDER: ana sayfa class grid ----------
+function renderClassGrid(){
+  const grid = document.getElementById('classGrid');
+  grid.innerHTML = CLASS_ORDER.map(c => {
+    const lessons = DATA.classes[c];
+    const firstLesson = lessons[0].ders;
+    const lastLesson = lessons[lessons.length-1].ders;
+    return `
+      <a class="class-card" href="#${c}" onclick="openClass('${c}'); return false;">
+        <div>
+          <div class="name">${c}</div>
+        </div>
+        <div class="badge">${firstLesson.replace('. Ders','')}–${lastLesson.replace('. Ders','')}. ders</div>
+      </a>
+    `;
+  }).join('');
+}
+
+// ---------- RENDER: detay sayfası ----------
+function openClass(className){
+  if(!DATA.classes[className]) return;
+  document.body.classList.add('detail-active');
+  document.getElementById('detailPage').classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+
+  const lessons = DATA.classes[className];
+  const nowKey = currentLessonKey();
+  
+  const html = `
+    <div class="detail-header fade-in">
+      <div class="label">PROJİST · Sunum Programı</div>
+      <h2>${className}</h2>
+      <p>${CLASS_LABELS[className] || className} — ${lessons.length} ders, ${lessons[0].saat.split(' – ')[0]} ile ${lessons[lessons.length-1].saat.split(' – ')[1]} arası</p>
+    </div>
+    ${FORM_LINKS[className] ? '' : '<div class="eval-info fade-in"><div><b>Değerlendirme formu yakında</b><br>Sunum yapan grupların değerlendirme butonları, formlar yayınlandığında aktif olacak.</div></div>'}
+    ${lessons.map(l => renderLesson(l, l.ders === nowKey, className)).join('')}
+  `;
+  document.getElementById('detailContent').innerHTML = html;
+}
+
+function renderLesson(l, isNow, className){
+  return `
+    <div class="lesson fade-in ${isNow ? 'is-now' : ''}">
+      <div class="lesson-head">
+        <div class="left">
+          <div class="lesson-name">${l.ders}</div>
+          <div class="lesson-time">${l.saat}</div>
+        </div>
+        ${isNow ? '<span class="now-pill">Şu an</span>' : ''}
+      </div>
+      <div class="lesson-body">
+        <div class="role-section">
+          <span class="role-label sunum">▶ Sunum Yapacak Gruplar</span>
+          <div class="group-list">
+            ${l.sunum.map(g => groupCard(g, 'sunum', className)).join('')}
+          </div>
+        </div>
+        <div class="role-section">
+          <span class="role-label izleyici">◉ İzleyici Gruplar</span>
+          <div class="group-list">
+            ${l.izleyici.map(g => groupCard(g, 'izleyici', className)).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function groupCard(grupNo, kind, className){
+  const g = DATA.groups[grupNo];
+  if(!g) return '';
+  // Sunum yapan gruplara değerlendirme butonu ekle
+  let evalBtn = '';
+  if(kind === 'sunum'){
+    const link = FORM_LINKS[className];
+    if(link && link.trim()){
+      evalBtn = `
+        <a class="eval-btn" href="${link}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.4 2.5a2 2 0 0 1 2.8 0L17 5.3 13.7 8.6 10.9 5.8z"/><path d="M21 2 9 14"/><path d="M3 21h18"/></svg>
+          Bu grubu değerlendir
+        </a>`;
+    } else {
+      evalBtn = `<span class="eval-btn disabled">Değerlendirme yakında açılacak</span>`;
+    }
+  }
+  return `
+    <div class="group-card ${kind}">
+      <div class="group-num">${grupNo}</div>
+      <div class="group-body">
+        <div class="group-brans">${g.brans}</div>
+        <div class="group-students">${g.ogrenciler}</div>
+        <div class="group-teacher">Öğretmen: <b>&nbsp;${g.ogretmen}</b></div>
+        ${evalBtn}
+      </div>
+    </div>
+  `;
+}
+
+function goHome(){
+  document.body.classList.remove('detail-active');
+  document.getElementById('detailPage').classList.remove('active');
+  window.scrollTo({top:0});
+  history.replaceState(null,'',' ');
+}
+
+// ---------- ŞU AN HANGİ DERS ----------
+const LESSON_RANGES = {
+  "2. Ders": [9*60+10, 9*60+50],
+  "3. Ders": [10*60+0, 10*60+40],
+  "4. Ders": [10*60+50, 11*60+30],
+  "5. Ders": [11*60+40, 12*60+20],
+  "6. Ders": [13*60+0, 13*60+40],
+  "7. Ders": [13*60+45, 14*60+25],
+  "8. Ders": [14*60+30, 15*60+5],
+  "9. Ders": [15*60+10, 15*60+45],
+};
+
+function currentLessonKey(){
+  const now = new Date();
+  const mins = now.getHours()*60 + now.getMinutes();
+  for(const [k,[s,e]] of Object.entries(LESSON_RANGES)){
+    if(mins>=s && mins<=e) return k;
+  }
+  return null;
+}
+
+function updateNowBar(){
+  const bar = document.getElementById('nowText');
+  const key = currentLessonKey();
+  const now = new Date();
+  const hh = String(now.getHours()).padStart(2,'0');
+  const mm = String(now.getMinutes()).padStart(2,'0');
+  if(key){
+    bar.innerHTML = `<strong>Şu an ${key}</strong> — Saat ${hh}:${mm} · Sunum devam ediyor`;
+  } else {
+    // bir sonraki ders ne?
+    const mins = now.getHours()*60 + now.getMinutes();
+    let next = null;
+    for(const [k,[s]] of Object.entries(LESSON_RANGES)){
+      if(s > mins){ next = {k, s}; break; }
+    }
+    if(next){
+      const hh2 = String(Math.floor(next.s/60)).padStart(2,'0');
+      const mm2 = String(next.s%60).padStart(2,'0');
+      bar.innerHTML = `Saat ${hh}:${mm} · Sıradaki: <strong>${next.k}</strong> (${hh2}:${mm2})`;
+    } else {
+      bar.innerHTML = `Saat ${hh}:${mm} · Bugünkü program tamamlandı`;
+    }
+  }
+}
+
+// ---------- ARAMA ----------
+function search(q){
+  q = q.toLowerCase().trim();
+  const results = document.getElementById('searchResults');
+  if(q.length < 2){ results.classList.remove('has-results'); results.innerHTML=''; return; }
+
+  const hits = [];
+  // gruplar
+  for(const [no, g] of Object.entries(DATA.groups)){
+    const haystack = `${no} ${g.ogrenciler} ${g.ogretmen} ${g.brans}`.toLowerCase();
+    if(haystack.includes(q)){
+      // hangi sınıfta sunum yapıyor / izliyor?
+      const placements = findPlacements(parseInt(no));
+      hits.push({no:parseInt(no), g, placements, score: matchScore(haystack, q, g)});
+    }
+  }
+  hits.sort((a,b)=> b.score - a.score);
+  
+  if(hits.length === 0){
+    results.classList.add('has-results');
+    results.innerHTML = `<div style="padding:14px;color:var(--ink-soft);text-align:center;font-size:13px;">Eşleşen sonuç bulunamadı.</div>`;
+    return;
+  }
+
+  results.classList.add('has-results');
+  results.innerHTML = hits.slice(0,8).map(h => `
+    <div class="search-result" onclick="openClass('${h.placements[0]?.className || CLASS_ORDER[0]}')">
+      <div class="sr-num">${h.no}</div>
+      <div class="sr-body">
+        <div class="sr-name">${h.g.ogrenciler}</div>
+        <div class="sr-where">${h.g.brans} · Öğr: ${h.g.ogretmen} · ${placementsSummary(h.placements)}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function matchScore(hay, q, g){
+  let s = 0;
+  if(g.ogrenciler.toLowerCase().includes(q)) s += 10;
+  if(g.ogretmen.toLowerCase().includes(q)) s += 8;
+  if(hay.startsWith(q)) s += 5;
+  return s;
+}
+
+function findPlacements(grupNo){
+  const out = [];
+  for(const [c, lessons] of Object.entries(DATA.classes)){
+    for(const l of lessons){
+      if(l.sunum.includes(grupNo)) out.push({className:c, ders:l.ders, role:'sunum'});
+      if(l.izleyici.includes(grupNo)) out.push({className:c, ders:l.ders, role:'izleyici'});
+    }
+  }
+  return out;
+}
+
+function placementsSummary(plcs){
+  const sunums = plcs.filter(p=>p.role==='sunum');
+  if(sunums.length === 0) return 'Yalnızca izleyici';
+  return sunums.map(p=>`${p.className} ${p.ders.replace('. Ders','.D')}`).join(', ');
+}
+
+document.getElementById('searchInput').addEventListener('input', e => search(e.target.value));
+
+// ---------- INIT ----------
+renderClassGrid();
+updateNowBar();
+setInterval(updateNowBar, 30000);
+
+// hash routing
+if(location.hash){
+  const c = location.hash.slice(1);
+  if(DATA.classes[c]) openClass(c);
+}
+window.addEventListener('hashchange', ()=>{
+  if(location.hash){
+    const c = location.hash.slice(1);
+    if(DATA.classes[c]) openClass(c);
+  } else {
+    goHome();
+  }
+});
+
+</script>
+</body>
+</html>
