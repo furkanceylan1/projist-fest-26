@@ -26,7 +26,6 @@
     print-color-adjust: exact;
   }
 
-  /* Ekranda gri arka plan + scroll, baskıda her poster ayrı sayfa */
   .controls {
     position: fixed; bottom: 20px; left: 20px;
     background: white; padding: 12px 14px;
@@ -48,9 +47,7 @@
   .controls button:hover { background: #0F4F82; }
   .controls p { color: #475569; line-height: 1.45; font-size: 11.5px; }
 
-  /* === POSTER === */
   .poster {
-    /* A3 dikey: 297mm x 420mm */
     width: 297mm;
     height: 420mm;
     background: var(--istek-blue);
@@ -64,14 +61,12 @@
   }
   .poster:last-child { page-break-after: auto; }
 
-  /* Üst bant — orijinal görselin üst kısmı */
   .poster-top {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* Alt bant — okul adı şeridi */
   .poster-bottom {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -79,18 +74,16 @@
     display: block;
   }
 
-  /* === İÇERİK ALANI === */
   .poster-content {
     position: absolute;
-    top: 95mm;   /* üst bandın altı */
+    top: 95mm;
     left: 14mm;
     right: 14mm;
-    bottom: 28mm;  /* alt şeridin üstü */
+    bottom: 22mm;
     display: flex;
     flex-direction: column;
   }
 
-  /* Başlık bloğu */
   .title-block {
     text-align: center;
     margin-bottom: 8mm;
@@ -120,7 +113,6 @@
     letter-spacing: 0.3pt;
   }
 
-  /* Sarı altın aksan çubuğu */
   .gold-bar {
     width: 50mm;
     height: 2mm;
@@ -129,7 +121,6 @@
     border-radius: 1mm;
   }
 
-  /* === DERS TABLOSU === */
   .lessons {
     flex: 1;
     display: flex;
@@ -144,7 +135,7 @@
     box-shadow: 0 1mm 3mm rgba(0,0,0,0.1);
     display: grid;
     grid-template-columns: 38mm 1fr 1fr;
-    min-height: 38mm;
+    min-height: 42mm;
   }
 
   .lesson-time {
@@ -185,9 +176,19 @@
     display: flex;
     flex-direction: column;
     border-left: 0.4mm solid #E2E8F0;
+    position: relative;
   }
   .role-col.izleyici {
     background: var(--izleyici-bg);
+  }
+
+  /* Sol üstte rol etiketi, sağ üstte görevli öğretmen */
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3mm;
+    margin-bottom: 3mm;
   }
   .role-label {
     font-family: 'Bricolage Grotesque', sans-serif;
@@ -195,10 +196,10 @@
     font-weight: 700;
     letter-spacing: 1.2pt;
     text-transform: uppercase;
-    margin-bottom: 2.5mm;
     display: inline-flex;
     align-items: center;
     gap: 1.5mm;
+    flex-shrink: 0;
   }
   .role-col.sunum .role-label { color: #047857; }
   .role-col.izleyici .role-label { color: #B45309; }
@@ -209,6 +210,28 @@
   }
   .role-col.sunum .role-label::before { background: #10B981; }
   .role-col.izleyici .role-label::before { background: #F59E0B; }
+
+  .role-teacher {
+    font-size: 7pt;
+    color: #475569;
+    text-align: right;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+  .role-teacher .teacher-label {
+    display: block;
+    color: #94A3B8;
+    font-size: 6pt;
+    font-weight: 600;
+    letter-spacing: 0.4pt;
+    text-transform: uppercase;
+    margin-bottom: 0.5mm;
+  }
+  .role-teacher .teacher-name {
+    font-weight: 800;
+    color: #1E293B;
+    font-size: 8.5pt;
+  }
 
   .groups {
     display: flex;
@@ -226,7 +249,6 @@
     flex-shrink: 0;
     width: 7mm; height: 7mm;
     border-radius: 1.5mm;
-    background: var(--istek-blue);
     color: white;
     font-family: 'Bricolage Grotesque', sans-serif;
     font-size: 9.5pt;
@@ -255,26 +277,6 @@
     margin-top: 0.3mm;
     font-weight: 500;
   }
-  .gmeta b { color: #1E293B; font-weight: 700; }
-
-  /* Bilgi/ Teacher şeridi en altta */
-  .footer-info {
-    position: absolute;
-    bottom: 31mm;
-    left: 14mm;
-    right: 14mm;
-    background: rgba(0,0,0,0.18);
-    border: 0.5mm solid rgba(255,255,255,0.2);
-    border-radius: 3mm;
-    padding: 3mm 5mm;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    font-size: 8.5pt;
-  }
-  .footer-info .left { font-weight: 700; letter-spacing: 0.5pt; }
-  .footer-info .right { opacity: 0.85; }
 
   @media print {
     body { background: white; }
@@ -312,7 +314,7 @@ const CLASS_LABELS = {
   "9FL":"9. Sınıf FL","10FL":"10. Sınıf FL","11FL":"11. Sınıf FL"
 };
 
-function groupRow(grupNo, kind){
+function groupRow(grupNo){
   const g = DATA.groups[grupNo];
   if(!g) return '';
   return `
@@ -320,13 +322,20 @@ function groupRow(grupNo, kind){
       <div class="gnum">${grupNo}</div>
       <div class="gbody">
         <div class="gstudents">${g.ogrenciler}</div>
-        <div class="gmeta">${g.brans} · Öğr: <b>${g.ogretmen}</b></div>
+        <div class="gmeta">${g.brans}</div>
       </div>
     </div>
   `;
 }
 
+function teacherOfGroupList(grupList){
+  const tset = [...new Set(grupList.map(g => DATA.groups[g]?.ogretmen).filter(Boolean))];
+  return tset.join(' / ');
+}
+
 function lessonBlock(l){
+  const sunumOgr = teacherOfGroupList(l.sunum);
+  const izleOgr = teacherOfGroupList(l.izleyici);
   return `
     <div class="lesson">
       <div class="lesson-time">
@@ -334,12 +343,24 @@ function lessonBlock(l){
         <div class="hour">${l.saat}</div>
       </div>
       <div class="role-col sunum">
-        <span class="role-label">Sunum Yapanlar</span>
-        <div class="groups">${l.sunum.map(g => groupRow(g,'sunum')).join('')}</div>
+        <div class="role-header">
+          <span class="role-label">Sunum Yapanlar</span>
+          <div class="role-teacher">
+            <span class="teacher-label">Görevli Öğretmen</span>
+            <span class="teacher-name">${sunumOgr}</span>
+          </div>
+        </div>
+        <div class="groups">${l.sunum.map(g => groupRow(g)).join('')}</div>
       </div>
       <div class="role-col izleyici">
-        <span class="role-label">İzleyiciler</span>
-        <div class="groups">${l.izleyici.map(g => groupRow(g,'izleyici')).join('')}</div>
+        <div class="role-header">
+          <span class="role-label">İzleyiciler</span>
+          <div class="role-teacher">
+            <span class="teacher-label">Görevli Öğretmen</span>
+            <span class="teacher-name">${izleOgr}</span>
+          </div>
+        </div>
+        <div class="groups">${l.izleyici.map(g => groupRow(g)).join('')}</div>
       </div>
     </div>
   `;
@@ -362,10 +383,6 @@ function poster(className){
         <div class="lessons">
           ${lessons.map(lessonBlock).join('')}
         </div>
-      </div>
-      <div class="footer-info">
-        <span class="left">Gün boyu bu sınıfta sunumlar gerçekleşecektir</span>
-        <span class="right">İstanbul · 2026</span>
       </div>
       <img class="poster-bottom" src="${BOT_BG}" alt="">
     </div>
