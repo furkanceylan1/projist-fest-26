@@ -340,6 +340,38 @@
     .class-grid { grid-template-columns: repeat(6, 1fr); }
   }
 
+  /* Oturum başlık bloğu */
+  .session-block { margin-bottom: 22px; }
+  .session-block:last-child { margin-bottom: 0; }
+  .session-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 10px;
+    border-bottom: 1.5px solid var(--line);
+    padding-bottom: 6px;
+  }
+  .session-name {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--istek-blue-dark);
+    letter-spacing: -0.3px;
+    text-transform: uppercase;
+  }
+  .session-time {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+  }
+
+  /* Class grid wrapper artık inline grid değil */
+  #classGrid {
+    display: block;
+  }
+
   .class-card {
     aspect-ratio: 1;
     background: linear-gradient(135deg, var(--istek-blue-faded) 0%, white 100%);
@@ -644,6 +676,215 @@
   body.detail-active .hero-sub,
   body.detail-active .now-bar { display: none; }
   body.detail-active .hero { padding-bottom: 20px; }
+
+  /* ---------- KİŞİ SAYFASI ---------- */
+  .person-header {
+    background: linear-gradient(135deg, var(--istek-blue-dark) 0%, var(--istek-blue-darker) 100%) !important;
+  }
+  .person-header::after {
+    background: radial-gradient(circle, rgba(244,169,35,0.3) 0%, transparent 70%) !important;
+  }
+
+  .person-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .task-card {
+    background: white;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 86px 1fr;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+  }
+  .task-card.is-now {
+    border-color: var(--sunum);
+    box-shadow: 0 0 0 4px rgba(16,185,129,0.12), var(--shadow-md);
+  }
+
+  .task-time-col {
+    background: linear-gradient(135deg, var(--istek-blue) 0%, var(--istek-blue-dark) 100%);
+    color: white;
+    padding: 14px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+  .task-time-col::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--projist-gold);
+  }
+  .task-card.sunum .task-time-col {
+    background: linear-gradient(135deg, var(--sunum) 0%, var(--sunum-dark) 100%);
+  }
+  .task-card.izleyici .task-time-col {
+    background: linear-gradient(135deg, var(--izleyici) 0%, var(--izleyici-dark) 100%);
+  }
+
+  .task-ders {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+  .task-saat {
+    font-size: 10.5px;
+    font-weight: 600;
+    opacity: 0.92;
+    letter-spacing: 0.2px;
+  }
+  .task-now-pill {
+    background: white;
+    color: var(--sunum-dark);
+    padding: 3px 8px;
+    border-radius: 100px;
+    font-size: 9.5px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .task-content {
+    padding: 14px 16px;
+  }
+  .task-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .task-class-wrap { display: flex; flex-direction: column; }
+  .task-class {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--istek-blue-dark);
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+  .task-class-label {
+    font-size: 11px;
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+  .task-role-pill {
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .task-role-pill.sunum { background: var(--sunum-bg); color: var(--sunum-dark); }
+  .task-role-pill.izleyici { background: var(--izleyici-bg); color: var(--izleyici-dark); }
+
+  .task-as-teacher {
+    background: var(--projist-gold-light);
+    color: #78350F;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 11.5px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .task-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .task-group {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 8px 10px;
+    background: #F8FAFC;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+  }
+  .task-group.own {
+    background: #FFFBEB;
+    border-color: rgba(244,169,35,0.4);
+  }
+  .task-group-num {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 7px;
+    background: var(--istek-blue);
+    color: white;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    display: grid; place-items: center;
+  }
+  .task-card.sunum .task-group-num { background: var(--sunum); }
+  .task-card.izleyici .task-group-num { background: var(--izleyici); }
+  .task-group-body { flex: 1; min-width: 0; }
+  .task-group-brans {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 1px;
+  }
+  .task-group-students {
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+  .task-group-students mark {
+    background: var(--projist-gold);
+    color: white;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+
+  .task-teacher-line {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .task-teacher-line b { color: var(--ink); font-weight: 700; }
+
+  /* Boş durum */
+  .empty-state {
+    text-align: center;
+    padding: 50px 20px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1.5px solid var(--line);
+  }
+  .empty-icon { font-size: 48px; margin-bottom: 12px; }
+  .empty-title {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .empty-text { font-size: 14px; color: var(--ink-soft); }
 </style>
 </head>
 <body>
@@ -686,7 +927,7 @@
     <section class="section">
       <div class="section-label">Sınıflar</div>
       <div class="section-title">Sınıfını seç</div>
-      <div class="class-grid" id="classGrid"></div>
+      <div id="classGrid"></div>
     </section>
 
   </div>
@@ -695,7 +936,7 @@
   <div class="detail-page" id="detailPage">
     <button class="back-btn" onclick="goHome()">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-      Sınıflara dön
+      Ana sayfaya dön
     </button>
     <div id="detailContent" style="margin-top:14px;"></div>
   </div>
@@ -704,13 +945,10 @@
 <footer>
   <div class="istek-mark">İSTEK KEMAL ATATÜRK OKULLARI</div>
   <div>PROJİST Fest '26 · Proje Sunum Programı</div>
-  <div style="margin-top:10px; font-size:11px; color:#94A3B8; font-weight:200;">
-    Created by Furkan Ceylan
-  </div>
 </footer>
 
 <script>
-const DATA = {"groups":{"1":{"ogrenciler":"Yavuz Selim Özer, Arman Turan, Bora Çevik","brans":"Matematik","ogretmen":"Deniz Mercan"},"2":{"ogrenciler":"Berra Kap, Poyraz Soylu, Ali Alexander Williams","brans":"Türk Dili Edebiyatı","ogretmen":"Deniz Mercan"},"3":{"ogrenciler":"Azra Beyazay, Güneş İkiz, Deniz Atikler","brans":"Tarih","ogretmen":"Deniz Mercan"},"4":{"ogrenciler":"Elif Eryüksel, Eda Işık, Sümeyye Sare Güneş","brans":"Tarih","ogretmen":"Nazan Özdere"},"5":{"ogrenciler":"Duru Hacıbektaşoğlu, Ayşe Beyza Cansız, Zeynep Kökel","brans":"Tarih","ogretmen":"Nazan Özdere"},"6":{"ogrenciler":"Ali Dumlu, Devrim Çınar Güler, Mehmet Aslan Şengül","brans":"Coğrafya","ogretmen":"Nazan Özdere"},"7":{"ogrenciler":"Deniz Mert Atayurt, Ege Aybars Önal, Ege Arabacı","brans":"Fizik","ogretmen":"Necibe Başboğa"},"8":{"ogrenciler":"Berin Polat, Yağmur Özkaya, Esma Yasak","brans":"Kimya","ogretmen":"Necibe Başboğa"},"9":{"ogrenciler":"Tuna Çiftçi, Mustafa Yağız Yılmaz, Çağan Arda Duran","brans":"Kimya","ogretmen":"Necibe Başboğa"},"10":{"ogrenciler":"Aden Vardar, Kuzey Şen, Ata Altıntaş","brans":"Kimya","ogretmen":"Aylin Çelik"},"11":{"ogrenciler":"Eda Karakale, Ayşe Duru Koç, Ayşe Hüma Demir","brans":"Kimya","ogretmen":"Aylin Çelik"},"12":{"ogrenciler":"Melis Önder, Eylül Sultan Hava, Karya Yılmaz","brans":"Biyoloji","ogretmen":"Aylin Çelik"},"13":{"ogrenciler":"Nil Deniz Tüfekçi, Ada Balcı, Asya Sezen","brans":"Biyoloji","ogretmen":"Nisa Nur Yağız"},"14":{"ogrenciler":"Ali Şefkatlioğlu, Kenan Tepe","brans":"Bilişim Tek. ve Yazılım","ogretmen":"Nisa Nur Yağız"},"15":{"ogrenciler":"Mehmet Kemal Özkul, Yağız Eyüp Uçan, Ali Emir Tuzuner","brans":"Bilişim Tek. ve Yazılım","ogretmen":"Nisa Nur Yağız"},"16":{"ogrenciler":"Mustafa Kemal Sert, Mehmet Dalokay Bayık, İsmail Namık Babal","brans":"Bilişim Tek. ve Yazılım","ogretmen":"Furkan Ceylan"},"17":{"ogrenciler":"Umut Güler, Doruk Deniz, Mehmet Uluç Kaplan","brans":"Bilişim Tek. ve Yazılım","ogretmen":"Furkan Ceylan"},"18":{"ogrenciler":"Duru Caner, Pınar Meriç, Mert Kavlakoğlu","brans":"Matematik","ogretmen":"Furkan Ceylan"},"19":{"ogrenciler":"Kadir Efe Kozanhan, İsmail Tuan Dal, Kaan Kılıçarslan","brans":"Matematik","ogretmen":"Hatice Ağaçarası"},"20":{"ogrenciler":"Ahmet Arda Gülbaz, Kaya Dayıoğlu, Emir Victor Ayoub","brans":"Matematik","ogretmen":"Hatice Ağaçarası"},"21":{"ogrenciler":"Burak Erbaş, Aslan Gürcan Gür","brans":"Matematik","ogretmen":"Hatice Ağaçarası"},"22":{"ogrenciler":"Cenk Tatar, Kemal Sarp Özkan, Kemal Emir Barutcuoğlu","brans":"Türk Dili Edebiyatı","ogretmen":"Meltem Arslan"},"23":{"ogrenciler":"Asal Yusufzade, Begüm Çadırcıoğlu","brans":"Türk Dili Edebiyatı","ogretmen":"Meltem Arslan"},"24":{"ogrenciler":"Ecrin Su Bozkurt, Yaren Naz Demir, Ateş Elgin","brans":"Türk Dili Edebiyatı","ogretmen":"Meltem Arslan"},"25":{"ogrenciler":"Kar Erkaya, Alp Kerem Özer, Poyraz Fındıkoğlu","brans":"Türk Dili Edebiyatı","ogretmen":"Nihal Suyolcu"},"26":{"ogrenciler":"Ömer Çağkan Han, Tuana Atbaş, Berke Öksoy, Cemre Boz","brans":"Türk Dili Edebiyatı","ogretmen":"Nihal Suyolcu"},"27":{"ogrenciler":"Irmak Üstün, Yağmur Şardan, Zeynep Ada Sezgin","brans":"Tarih","ogretmen":"Nihal Suyolcu"},"28":{"ogrenciler":"Alp Büyükşengür, Anıl Kerem Şahin, Arda Key","brans":"Tarih","ogretmen":"Burcu Demir"},"29":{"ogrenciler":"Umay Karslı, Yasemin Isıgöllü, Derin Mavi Öztürk","brans":"Tarih","ogretmen":"Burcu Demir"},"30":{"ogrenciler":"Ali Arslangündoğdu, Karya Şahin, Doğa Mesudoğlu","brans":"Coğrafya","ogretmen":"Burcu Demir"},"31":{"ogrenciler":"Aslı Ece Kuray, Ece Turhan, Ekin Rüzgar Yüksel","brans":"Fizik","ogretmen":"Burcu Bıyıkoğlu"},"32":{"ogrenciler":"Kuzey Karaca, Altay Aryan Gül, Berzan Baran","brans":"Fizik","ogretmen":"Burcu Bıyıkoğlu"},"33":{"ogrenciler":"Tuna Eyigüngör, Emre Yavaş, Deniz Soylu","brans":"Fizik","ogretmen":"Burcu Bıyıkoğlu"},"34":{"ogrenciler":"Aslı Akbaş, Deniz İnce, Muhammed İkbal Aydın","brans":"Kimya","ogretmen":"Nilay Olkan"},"35":{"ogrenciler":"Mustafa Ege Atalay, Kamil Hira Güneş, Ömer Efe Taş","brans":"Kimya","ogretmen":"Nilay Olkan"},"36":{"ogrenciler":"Zeynep Karaçam, Yağmur Al","brans":"Biyoloji","ogretmen":"Nilay Olkan"},"37":{"ogrenciler":"Cem Köseliören, Birol Engin, Ali Berk Polat","brans":"Felsefe","ogretmen":"Cem Onur Gülal"},"38":{"ogrenciler":"Ali Hıdır Akkiraz, Arel Can Özgüler","brans":"Felsefe","ogretmen":"Cem Onur Gülal"},"39":{"ogrenciler":"Duru Var, Ela Doğan, Asya Kazanç","brans":"Felsefe","ogretmen":"Cem Onur Gülal"},"40":{"ogrenciler":"Hazal Bakır, Can Boran Tekin, Birce Güngör","brans":"Felsefe","ogretmen":"Utku Bingül"},"41":{"ogrenciler":"Ayda Sarpyıldırım, Ela Ergenoğlu","brans":"Matematik","ogretmen":"Utku Bingül"},"42":{"ogrenciler":"Ecem Kalyoncu, Yağmur Tözge","brans":"Matematik","ogretmen":"Utku Bingül"},"43":{"ogrenciler":"Selin Osman, Beril Mudun, Elif Hasırcıoğlu","brans":"Matematik","ogretmen":"Murat Özen"},"44":{"ogrenciler":"Alya Dagistani, Öykü Özaltay","brans":"Matematik","ogretmen":"Murat Özen"},"45":{"ogrenciler":"Duru İpek Sözbir, Eda Duru Bilbay, Kıvanç Karakale","brans":"Matematik","ogretmen":"Murat Özen"},"46":{"ogrenciler":"Emir Çavdar, Poyraz Pala, Ares Erdoğan","brans":"Matematik","ogretmen":"Ayşenur Tan"},"47":{"ogrenciler":"Esin İnal, Yağmur Albaş, Serra Yasak","brans":"Türk Dili Edebiyatı","ogretmen":"Ayşenur Tan"},"48":{"ogrenciler":"Nehir Ada Güntekin, İrem Naz Yörük","brans":"Türk Dili Edebiyatı","ogretmen":"Ayşenur Tan"},"49":{"ogrenciler":"Emir Ersal, Alya Yılmaz, Atilla Kratzer","brans":"Türk Dili Edebiyatı","ogretmen":"Gazel Göğebakan"},"50":{"ogrenciler":"Mert Aksüs, Alp Ataseven, Alaz Can Arslan","brans":"Türk Dili Edebiyatı","ogretmen":"Gazel Göğebakan"},"51":{"ogrenciler":"Selim Sarı, Ahmet Demirezer, Can Kadagan","brans":"Tarih","ogretmen":"Gazel Göğebakan"},"52":{"ogrenciler":"Ayaz Gençer, Güney Erdoğan, Rafet Şan Top","brans":"Tarih","ogretmen":"Nazan Özdere"},"53":{"ogrenciler":"İrem Nur Kaçar, Aren Akbaşlı","brans":"Tarih","ogretmen":"Nazan Özdere"},"54":{"ogrenciler":"Beyza Ruayercan, Işıl Nalbat","brans":"Coğrafya","ogretmen":"Nazan Özdere"},"55":{"ogrenciler":"Ceren Kutlar, Beren Örnek, Duru Aydemir","brans":"Coğrafya","ogretmen":"Türkan Doğan"},"56":{"ogrenciler":"Poyraz Dönmez, Recep Emir Güman, Volkan Toygar","brans":"Coğrafya","ogretmen":"Türkan Doğan"},"57":{"ogrenciler":"Elif Yıldız, İlayda Gökduman, Melisa Yavuz","brans":"Coğrafya","ogretmen":"Türkan Doğan"},"58":{"ogrenciler":"Kerim Enes Ocak, Utku Öngel, Yiğit Hoşavcı, Elif Karakaya","brans":"Fizik","ogretmen":"Burcu Tahoğlu"},"59":{"ogrenciler":"Doruk Yılmazkaraosmanoğlu, Ela Aktaş, Rüzgar Yurdakul","brans":"Fizik","ogretmen":"Burcu Tahoğlu"},"60":{"ogrenciler":"Mert Eren Tak, Emir Mert Özer, Mustafa Eren Akgül","brans":"Fizik","ogretmen":"Burcu Tahoğlu"},"61":{"ogrenciler":"Yiğit Akın, Ömer Alp Özer","brans":"Kimya","ogretmen":"Buket Aksoy"},"62":{"ogrenciler":"Poyraz Anut, Ali Sinan Gür, Leo Can Ali","brans":"Biyoloji","ogretmen":"Buket Aksoy"},"63":{"ogrenciler":"Ege Yetkin, Deniz Tepsi, Efe Soylu","brans":"Biyoloji","ogretmen":"Nilay Olkan"},"64":{"ogrenciler":"Yiğit Güngör, Efe Özalp","brans":"Biyoloji","ogretmen":"Nilay Olkan"}},"classes":{"9A":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[1,2,3],"izleyici":[28,29,30]},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[10,11,12],"izleyici":[1,2,3]},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[19,20,21],"izleyici":[10,11,12]},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[28,29,30],"izleyici":[19,20,21]}],"9B":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[4,5,6],"izleyici":[31,32,33]},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[13,14,15],"izleyici":[4,5,6]},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[22,23,24],"izleyici":[4,5,6]},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[31,32,33],"izleyici":[22,23,24]}],"10A":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[7,8,9],"izleyici":[34,35,36]},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[16,17,18],"izleyici":[7,8,9]},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[25,26,27],"izleyici":[16,17,18]},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[34,35,36],"izleyici":[25,26,27]}],"10B":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[10,11,12],"izleyici":[19,20,21]},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[19,20,21],"izleyici":[28,29,30]},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[28,29,30],"izleyici":[1,2,3]},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[1,2,3],"izleyici":[10,11,12]}],"10C":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[13,14,15],"izleyici":[22,23,24]},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[22,23,24],"izleyici":[31,32,33]},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[31,32,33],"izleyici":[4,5,6]},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[4,5,6],"izleyici":[13,14,15]}],"Hz":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[16,17,18],"izleyici":[25,26,27]},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[25,26,27],"izleyici":[34,35,36]},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[34,35,36],"izleyici":[7,8,9]},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[7,8,9],"izleyici":[16,17,18]}],"11A":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[37,38,39],"izleyici":[58,59,60]},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[46,47,48],"izleyici":[37,38,39]},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[49,50,51],"izleyici":[46,47,48]},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[58,59,60],"izleyici":[49,50,51]}],"11B":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[46,47,48],"izleyici":[49,50,51]},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[49,50,51],"izleyici":[58,59,60]},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[58,59,60],"izleyici":[37,38,39]},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[37,38,39],"izleyici":[46,47,48]}],"11C":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[40,41,42],"izleyici":[61,62]},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[43,44,45],"izleyici":[40,41,42]},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[52,53,54],"izleyici":[43,44,45]},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[61,62],"izleyici":[52,53,54]}],"9FL":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[43,44,45],"izleyici":[52,53,54]},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[52,53,54],"izleyici":[61,62]},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[61,62],"izleyici":[40,41,42]},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[40,41,42],"izleyici":[43,44,45]}],"10FL":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[43,44,45],"izleyici":[63,64]},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[46,47,48],"izleyici":[43,44,45]},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[55,56,57],"izleyici":[46,47,48]},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[63,64],"izleyici":[55,56,57]}],"11FL":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[46,47,48],"izleyici":[55,56,57]},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[55,56,57],"izleyici":[63,64]},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[63,64],"izleyici":[43,44,45]},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[43,44,45],"izleyici":[46,47,48]}]},"lesson_times":{"2. Ders":"09:10 – 09:50","3. Ders":"10:00 – 10:40","4. Ders":"10:50 – 11:30","5. Ders":"11:40 – 12:20","6. Ders":"13:00 – 13:40","7. Ders":"13:45 – 14:25","8. Ders":"14:30 – 15:05","9. Ders":"15:10 – 15:45"}};
+const DATA = {"groups":{"1":{"ogrenciler":"Yavuz Selim Özer, Arman Turan, Bora Çevik","brans":"Matematik","ogretmen":"Deniz Mercan"},"2":{"ogrenciler":"Berra Kap, Poyraz Soylu, Ali Alexander Williams","brans":"Türk Dili Edebiyatı","ogretmen":"Deniz Mercan"},"3":{"ogrenciler":"Azra Beyazay, Güneş İkiz, Deniz Atikler","brans":"Tarih","ogretmen":"Deniz Mercan"},"4":{"ogrenciler":"Elif Eryüksel, Eda Işık, Sümeyye Sare Güneş","brans":"Tarih","ogretmen":"Nazan Özdere"},"5":{"ogrenciler":"Duru Hacıbektaşoğlu, Ayşe Beyza Cansız, Zeynep Kökel","brans":"Tarih","ogretmen":"Nazan Özdere"},"6":{"ogrenciler":"Ali Dumlu, Devrim Çınar Güler, Mehmet Aslan Şengül","brans":"Coğrafya","ogretmen":"Nazan Özdere"},"7":{"ogrenciler":"Deniz Mert Atayurt, Ege Aybars Önal, Ege Arabacı","brans":"Fizik","ogretmen":"Necibe Başboğa"},"8":{"ogrenciler":"Berin Polat, Yağmur Özkaya, Esma Yasak","brans":"Kimya","ogretmen":"Necibe Başboğa"},"9":{"ogrenciler":"Tuna Çiftçi, Mustafa Yağız Yılmaz, Çağan Arda Duran","brans":"Kimya","ogretmen":"Necibe Başboğa"},"10":{"ogrenciler":"Aden Vardar, Kuzey Şen, Ata Altıntaş","brans":"Kimya","ogretmen":"Aylin Çelik"},"11":{"ogrenciler":"Eda Karakale, Ayşe Duru Koç, Ayşe Hüma Demir","brans":"Kimya","ogretmen":"Aylin Çelik"},"12":{"ogrenciler":"Melis Önder, Eylül Sultan Hava, Karya Yılmaz","brans":"Biyoloji","ogretmen":"Aylin Çelik"},"13":{"ogrenciler":"Nil Deniz Tüfekçi, Ada Balcı, Asya Sezen","brans":"Biyoloji","ogretmen":"Nisa Nur Yağız"},"14":{"ogrenciler":"Ali Şefkatlioğlu, Kenan Tepe, Erol Saban","brans":"Bilişim Tek. ve Yazılım","ogretmen":"Nisa Nur Yağız"},"15":{"ogrenciler":"Mehmet Kemal Özkul, Yağız Eyüp Uçan, Ali Emir Tuzuner","brans":"Bilişim Tek. ve Yazılım","ogretmen":"Nisa Nur Yağız"},"16":{"ogrenciler":"Mustafa Kemal Sert, Mehmet Dalokay Bayık, İsmail Namık Babal","brans":"Bilişim Tek. ve Yazılım","ogretmen":"Furkan Ceylan"},"17":{"ogrenciler":"Umut Güler, Doruk Deniz, Mehmet Uluç Kaplan","brans":"Bilişim Tek. ve Yazılım","ogretmen":"Furkan Ceylan"},"18":{"ogrenciler":"Duru Caner, Pınar Meriç, Mert Kavlakoğlu","brans":"Matematik","ogretmen":"Furkan Ceylan"},"19":{"ogrenciler":"Kadir Efe Kozanhan, İsmail Tuan Dal, Kaan Kılıçarslan","brans":"Matematik","ogretmen":"Hatice Ağaçarası"},"20":{"ogrenciler":"Ahmet Arda Gülbaz, Kaya Dayıoğlu, Emir Victor Ayoub","brans":"Matematik","ogretmen":"Hatice Ağaçarası"},"21":{"ogrenciler":"Burak Erbaş, Aslan Gürcan Gür","brans":"Matematik","ogretmen":"Hatice Ağaçarası"},"22":{"ogrenciler":"Cenk Tatar, Kemal Sarp Özkan, Kemal Emir Barutcuoğlu","brans":"Türk Dili Edebiyatı","ogretmen":"Meltem Arslan"},"23":{"ogrenciler":"Asal Yusufzade, Begüm Çadırcıoğlu","brans":"Türk Dili Edebiyatı","ogretmen":"Meltem Arslan"},"24":{"ogrenciler":"Ecrin Su Bozkurt, Yaren Naz Demir, Ateş Elgin","brans":"Türk Dili Edebiyatı","ogretmen":"Meltem Arslan"},"25":{"ogrenciler":"Kar Erkaya, Alp Kerem Özer, Poyraz Fındıkoğlu","brans":"Türk Dili Edebiyatı","ogretmen":"Nihal Suyolcu"},"26":{"ogrenciler":"Ömer Çağkan Han, Tuana Atbaş, Berke Öksoy, Cemre Boz","brans":"Türk Dili Edebiyatı","ogretmen":"Nihal Suyolcu"},"27":{"ogrenciler":"Irmak Üstün, Yağmur Şardan, Zeynep Ada Sezgin","brans":"Tarih","ogretmen":"Nihal Suyolcu"},"28":{"ogrenciler":"Alp Büyükşengür, Anıl Kerem Şahin, Arda Key","brans":"Tarih","ogretmen":"Burcu Demir"},"29":{"ogrenciler":"Umay Karslı, Yasemin Isıgöllü, Derin Mavi Öztürk","brans":"Tarih","ogretmen":"Burcu Demir"},"30":{"ogrenciler":"Ali Arslangündoğdu, Karya Şahin, Doğa Mesudoğlu","brans":"Coğrafya","ogretmen":"Burcu Demir"},"31":{"ogrenciler":"Aslı Ece Kuray, Ece Turhan, Ekin Rüzgar Yüksel","brans":"Fizik","ogretmen":"Burcu Bıyıkoğlu"},"32":{"ogrenciler":"Kuzey Karaca, Altay Aryan Gül, Berzan Baran","brans":"Fizik","ogretmen":"Burcu Bıyıkoğlu"},"33":{"ogrenciler":"Tuna Eyigüngör, Emre Yavaş, Deniz Soylu","brans":"Fizik","ogretmen":"Burcu Bıyıkoğlu"},"34":{"ogrenciler":"Aslı Akbaş, Deniz İnce, Muhammed İkbal Aydın","brans":"Kimya","ogretmen":"Nilay Olkan"},"35":{"ogrenciler":"Mustafa Ege Atalay, Kamil Hira Güneş, Ömer Efe Taş","brans":"Kimya","ogretmen":"Nilay Olkan"},"36":{"ogrenciler":"Zeynep Karaçam, Yağmur Al","brans":"Biyoloji","ogretmen":"Nilay Olkan"},"37":{"ogrenciler":"Cem Köseliören, Birol Engin, Ali Berk Polat","brans":"Felsefe","ogretmen":"Cem Onur Gülal"},"38":{"ogrenciler":"Ali Hıdır Akkiraz, Arel Can Özgüler","brans":"Felsefe","ogretmen":"Cem Onur Gülal"},"39":{"ogrenciler":"Duru Var, Ela Doğan, Asya Kazanç","brans":"Felsefe","ogretmen":"Cem Onur Gülal"},"40":{"ogrenciler":"Hazal Bakır, Can Boran Tekin, Birce Güngör","brans":"Felsefe","ogretmen":"Utku Bingül"},"41":{"ogrenciler":"Ayda Sarpyıldırım, Ela Ergenoğlu","brans":"Matematik","ogretmen":"Utku Bingül"},"42":{"ogrenciler":"Ecem Kalyoncu, Yağmur Tözge","brans":"Matematik","ogretmen":"Utku Bingül"},"43":{"ogrenciler":"Selin Osman, Beril Mudun, Elif Hasırcıoğlu","brans":"Matematik","ogretmen":"Halit Murat Özen"},"44":{"ogrenciler":"Alya Dagistani, Öykü Özaltay","brans":"Matematik","ogretmen":"Halit Murat Özen"},"45":{"ogrenciler":"Duru İpek Sözbir, Eda Duru Bilbay, Kıvanç Karakale","brans":"Matematik","ogretmen":"Halit Murat Özen"},"46":{"ogrenciler":"Emir Çavdar, Poyraz Pala, Ares Erdoğan","brans":"Matematik","ogretmen":"Ayşenur Tan"},"47":{"ogrenciler":"Esin İnal, Yağmur Albaş, Serra Yasak","brans":"Türk Dili Edebiyatı","ogretmen":"Ayşenur Tan"},"48":{"ogrenciler":"Nehir Ada Güntekin, İrem Naz Yörük","brans":"Türk Dili Edebiyatı","ogretmen":"Ayşenur Tan"},"49":{"ogrenciler":"Emir Ersal, Alya Yılmaz, Atilla Kratzer","brans":"Türk Dili Edebiyatı","ogretmen":"Gazel Göğebakan"},"50":{"ogrenciler":"Mert Aksüs, Alp Ataseven, Alaz Can Arslan","brans":"Türk Dili Edebiyatı","ogretmen":"Gazel Göğebakan"},"51":{"ogrenciler":"Selim Sarı, Ahmet Demirezer, Can Kadagan","brans":"Tarih","ogretmen":"Gazel Göğebakan"},"52":{"ogrenciler":"Ayaz Gençer, Güney Erdoğan, Rafet Şan Top","brans":"Tarih","ogretmen":"Nazan Özdere"},"53":{"ogrenciler":"İrem Nur Kaçar, Aren Akbaşlı","brans":"Tarih","ogretmen":"Nazan Özdere"},"54":{"ogrenciler":"Beyza Ruayercan, Işıl Nalbat","brans":"Coğrafya","ogretmen":"Nazan Özdere"},"55":{"ogrenciler":"Ceren Kutlar, Beren Örnek, Duru Aydemir","brans":"Coğrafya","ogretmen":"Türkan Doğan"},"56":{"ogrenciler":"Poyraz Dönmez, Recep Emir Güman, Volkan Toygar","brans":"Coğrafya","ogretmen":"Türkan Doğan"},"57":{"ogrenciler":"Elif Yıldız, İlayda Gökduman, Melisa Yavuz","brans":"Coğrafya","ogretmen":"Türkan Doğan"},"58":{"ogrenciler":"Kerim Enes Ocak, Utku Öngel, Yiğit Hoşavcı, Elif Karakaya","brans":"Fizik","ogretmen":"Burcu Tahoğlu"},"59":{"ogrenciler":"Doruk Yılmazkaraosmanoğlu, Ela Aktaş, Rüzgar Yurdakul","brans":"Fizik","ogretmen":"Burcu Tahoğlu"},"60":{"ogrenciler":"Mert Eren Tak, Emir Mert Özer, Mustafa Eren Akgül","brans":"Fizik","ogretmen":"Burcu Tahoğlu"},"61":{"ogrenciler":"Yiğit Akın, Ömer Alp Özer","brans":"Kimya","ogretmen":"Buket Aksoy"},"62":{"ogrenciler":"Poyraz Anut, Ali Sinan Gür, Leo Can Ali","brans":"Biyoloji","ogretmen":"Buket Aksoy"},"63":{"ogrenciler":"Ege Yetkin, Deniz Tepsi, Efe Soylu","brans":"Biyoloji","ogretmen":"Nilay Olkan"},"64":{"ogrenciler":"Yiğit Güngör, Efe Özalp","brans":"Biyoloji","ogretmen":"Nilay Olkan"}},"classes":{"9A":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[1,2,3],"izleyici":[28,29,30],"sunum_ogretmen":"Deniz Mercan","izleyici_ogretmen":"Burcu Demir"},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[10,11,12],"izleyici":[1,2,3],"sunum_ogretmen":"Aylin Çelik","izleyici_ogretmen":"Deniz Mercan"},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[19,20,21],"izleyici":[10,11,12],"sunum_ogretmen":"Hatice Ağaçarası","izleyici_ogretmen":"Aylin Çelik"},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[28,29,30],"izleyici":[19,20,21],"sunum_ogretmen":"Burcu Demir","izleyici_ogretmen":"Hatice Ağaçarası"}],"9B":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[4,5,6],"izleyici":[31,32,33],"sunum_ogretmen":"Nazan Özdere","izleyici_ogretmen":"Burcu Bıyıkoğlu"},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[13,14,15],"izleyici":[4,5,6],"sunum_ogretmen":"Nisa Nur Yağız","izleyici_ogretmen":"Nazan Özdere"},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[22,23,24],"izleyici":[13,14,15],"sunum_ogretmen":"Meltem Arslan","izleyici_ogretmen":"Nisa Nur Yağız"},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[31,32,33],"izleyici":[22,23,24],"sunum_ogretmen":"Burcu Bıyıkoğlu","izleyici_ogretmen":"Meltem Arslan"}],"10A":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[7,8,9],"izleyici":[34,35,36],"sunum_ogretmen":"Necibe Başboğa","izleyici_ogretmen":"Yelda Coşkun"},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[16,17,18],"izleyici":[7,8,9],"sunum_ogretmen":"Furkan Ceylan","izleyici_ogretmen":"Necibe Başboğa"},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[25,26,27],"izleyici":[16,17,18],"sunum_ogretmen":"Nihal Suyolcu","izleyici_ogretmen":"Furkan Ceylan"},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[34,35,36],"izleyici":[25,26,27],"sunum_ogretmen":"Nilay Olkan","izleyici_ogretmen":"Nihal Suyolcu"}],"10B":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[10,11,12],"izleyici":[19,20,21],"sunum_ogretmen":"Aylin Çelik","izleyici_ogretmen":"Hatice Ağaçarası"},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[19,20,21],"izleyici":[28,29,30],"sunum_ogretmen":"Hatice Ağaçarası","izleyici_ogretmen":"Burcu Demir"},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[28,29,30],"izleyici":[1,2,3],"sunum_ogretmen":"Burcu Demir","izleyici_ogretmen":"Deniz Mercan"},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[1,2,3],"izleyici":[10,11,12],"sunum_ogretmen":"Deniz Mercan","izleyici_ogretmen":"Aylin Çelik"}],"10C":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[13,14,15],"izleyici":[22,23,24],"sunum_ogretmen":"Nisa Nur Yağız","izleyici_ogretmen":"Meltem Arslan"},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[22,23,24],"izleyici":[31,32,33],"sunum_ogretmen":"Meltem Arslan","izleyici_ogretmen":"Burcu Bıyıkoğlu"},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[31,32,33],"izleyici":[4,5,6],"sunum_ogretmen":"Burcu Bıyıkoğlu","izleyici_ogretmen":"Nazan Özdere"},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[4,5,6],"izleyici":[13,14,15],"sunum_ogretmen":"Nazan Özdere","izleyici_ogretmen":"Nisa Nur Yağız"}],"Hz":[{"ders":"2. Ders","saat":"09:10 – 09:50","sunum":[16,17,18],"izleyici":[25,26,27],"sunum_ogretmen":"Furkan Ceylan","izleyici_ogretmen":"Nihal Suyolcu"},{"ders":"3. Ders","saat":"10:00 – 10:40","sunum":[25,26,27],"izleyici":[34,35,36],"sunum_ogretmen":"Nihal Suyolcu","izleyici_ogretmen":"Yelda Coşkun"},{"ders":"4. Ders","saat":"10:50 – 11:30","sunum":[34,35,36],"izleyici":[7,8,9],"sunum_ogretmen":"Nilay Olkan","izleyici_ogretmen":"Necibe Başboğa"},{"ders":"5. Ders","saat":"11:40 – 12:20","sunum":[7,8,9],"izleyici":[16,17,18],"sunum_ogretmen":"Necibe Başboğa","izleyici_ogretmen":"Furkan Ceylan"}],"11A":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[37,38,39],"izleyici":[58,59,60],"sunum_ogretmen":"Cem Onur Gülal","izleyici_ogretmen":"Burcu Tahoğlu"},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[46,47,48],"izleyici":[37,38,39],"sunum_ogretmen":"Ayşenur Tan","izleyici_ogretmen":"Cem Onur Gülal"},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[49,50,51],"izleyici":[46,47,48],"sunum_ogretmen":"Gazel Göğebakan","izleyici_ogretmen":"Ayşenur Tan"},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[58,59,60],"izleyici":[49,50,51],"sunum_ogretmen":"Burcu Tahoğlu","izleyici_ogretmen":"Gazel Göğebakan"}],"11B":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[46,47,48],"izleyici":[49,50,51],"sunum_ogretmen":"Ayşenur Tan","izleyici_ogretmen":"Gazel Göğebakan"},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[49,50,51],"izleyici":[58,59,60],"sunum_ogretmen":"Gazel Göğebakan","izleyici_ogretmen":"Burcu Tahoğlu"},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[58,59,60],"izleyici":[37,38,39],"sunum_ogretmen":"Burcu Tahoğlu","izleyici_ogretmen":"Cem Onur Gülal"},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[37,38,39],"izleyici":[46,47,48],"sunum_ogretmen":"Cem Onur Gülal","izleyici_ogretmen":"Ayşenur Tan"}],"11C":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[40,41,42],"izleyici":[61,62],"sunum_ogretmen":"Utku Bingül","izleyici_ogretmen":"Buket Aksoy"},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[43,44,45],"izleyici":[40,41,42],"sunum_ogretmen":"Halit Murat Özen","izleyici_ogretmen":"Utku Bingül"},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[52,53,54],"izleyici":[43,44,45],"sunum_ogretmen":"Nazan Özdere","izleyici_ogretmen":"Halit Murat Özen"},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[61,62],"izleyici":[52,53,54],"sunum_ogretmen":"Buket Aksoy","izleyici_ogretmen":"Nazan Özdere"}],"9FL":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[43,44,45],"izleyici":[55,56,57],"sunum_ogretmen":"Halit Murat Özen","izleyici_ogretmen":"Türkan Doğan"},{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[55,56,57],"izleyici":[52,53,54],"sunum_ogretmen":"Türkan Doğan","izleyici_ogretmen":"Nazan Özdere"},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[63,64],"izleyici":[43,44,45],"sunum_ogretmen":"Nilay Olkan","izleyici_ogretmen":"Halit Murat Özen"}],"10FL":[{"ders":"6. Ders","saat":"13:00 – 13:40","sunum":[52,53,54],"izleyici":[63,64],"sunum_ogretmen":"Nazan Özdere","izleyici_ogretmen":"Nilay Olkan"},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[40,41,42],"izleyici":[61,62],"sunum_ogretmen":"Utku Bingül","izleyici_ogretmen":"Buket Aksoy"}],"11FL":[{"ders":"7. Ders","saat":"13:45 – 14:25","sunum":[61,62],"izleyici":[63,64],"sunum_ogretmen":"Buket Aksoy","izleyici_ogretmen":"Nilay Olkan"},{"ders":"8. Ders","saat":"14:30 – 15:05","sunum":[63,64],"izleyici":[55,56,57],"sunum_ogretmen":"Nilay Olkan","izleyici_ogretmen":"Türkan Doğan"},{"ders":"9. Ders","saat":"15:10 – 15:45","sunum":[55,56,57],"izleyici":[40,41,42],"sunum_ogretmen":"Türkan Doğan","izleyici_ogretmen":"Utku Bingül"}]},"class_groups":{"Sabah Oturumu":["9A","9B","10A","10B","10C","Hz"],"Öğle Oturumu":["11A","11B","11C","9FL","10FL","11FL"]},"lesson_times":{"2. Ders":"09:10 – 09:50","3. Ders":"10:00 – 10:40","4. Ders":"10:50 – 11:30","5. Ders":"11:40 – 12:20","6. Ders":"13:00 – 13:40","7. Ders":"13:45 – 14:25","8. Ders":"14:30 – 15:05","9. Ders":"15:10 – 15:45"}};
 
 const CLASS_ORDER = ["9A","9B","10A","10B","10C","Hz","11A","11B","11C","9FL","10FL","11FL"];
 const CLASS_LABELS = {
@@ -732,7 +970,7 @@ function buildSearchIndex(){
 
   for(const [no, g] of Object.entries(DATA.groups)){
     const grupNo = parseInt(no);
-    // Öğretmen
+    // Öğretmen (sabit/blok atama)
     if(g.ogretmen){
       if(!teacherMap.has(g.ogretmen)){
         teacherMap.set(g.ogretmen, []);
@@ -741,26 +979,39 @@ function buildSearchIndex(){
     }
     // Öğrenciler — virgülle ayrılmış
     g.ogrenciler.split(',').map(s=>s.trim()).filter(Boolean).forEach(name => {
-      // Aynı isim farklı gruplarda olabilir (nadiren). Liste tut.
       const key = name;
       if(!studentMap.has(key)) studentMap.set(key, []);
       studentMap.get(key).push(grupNo);
     });
   }
 
+  // Override öğretmenleri de search index'e ekle (sabit atamada görünmeyenler için)
+  // Bu sayede 10A 2. Ders izleyici tarafında Yelda Coşkun gibi öğretmenler aranabilir
+  for(const [className, lessons] of Object.entries(DATA.classes)){
+    for(const l of lessons){
+      const teachers = [];
+      if(l.sunum_ogretmen) teachers.push(...l.sunum_ogretmen.split(' / '));
+      if(l.izleyici_ogretmen) teachers.push(...l.izleyici_ogretmen.split(' / '));
+      for(const t of teachers){
+        if(t && !teacherMap.has(t)){
+          // Override öğretmeni: hiçbir gruba sabit bağlı değil
+          teacherMap.set(t, []);
+        }
+      }
+    }
+  }
+
   SEARCH_INDEX = [];
-  // Öğretmenler
   for(const [name, gruplar] of teacherMap){
     SEARCH_INDEX.push({
       type: 'ogretmen',
       name,
       gruplar,
-      meta: `Öğretmen · ${gruplar.length} grup`,
+      meta: gruplar.length > 0 ? `Öğretmen · ${gruplar.length} grup` : 'Öğretmen · Görevli',
     });
   }
-  // Öğrenciler
   for(const [name, gruplar] of studentMap){
-    const grup = gruplar[0];  // genelde tek olur
+    const grup = gruplar[0];
     const g = DATA.groups[grup];
     SEARCH_INDEX.push({
       type: 'ogrenci',
@@ -770,7 +1021,6 @@ function buildSearchIndex(){
     });
   }
 
-  // Sıralama: önce öğretmenler, sonra öğrenciler alfabetik
   SEARCH_INDEX.sort((a,b)=>{
     if(a.type !== b.type) return a.type === 'ogretmen' ? -1 : 1;
     return a.name.localeCompare(b.name, 'tr');
@@ -869,54 +1119,206 @@ function renderDropdown(q){
   dd.classList.add('visible');
 }
 
-// Seçim yapılınca grubun olduğu sınıfı aç
+// Seçim yapılınca kişiye özel görev sayfası aç
 function selectMatch(idx){
   const m = currentMatches[idx];
   if(!m) return;
-
-  // İlk grubunu hedef al
-  const grupNo = m.gruplar[0];
-  // Bu grubun yer aldığı ilk sınıf
-  let targetClass = null;
-  for(const [c, lessons] of Object.entries(DATA.classes)){
-    for(const l of lessons){
-      if(l.sunum.includes(grupNo) || l.izleyici.includes(grupNo)){
-        targetClass = c;
-        break;
-      }
-    }
-    if(targetClass) break;
-  }
-
-  if(!targetClass){
-    // Öğretmen birden fazla gruba sahip olabilir — herhangi birinin sınıfını bul
-    for(const otherGrup of m.gruplar){
-      for(const [c, lessons] of Object.entries(DATA.classes)){
-        for(const l of lessons){
-          if(l.sunum.includes(otherGrup) || l.izleyici.includes(otherGrup)){
-            targetClass = c;
-            break;
-          }
-        }
-        if(targetClass) break;
-      }
-      if(targetClass) break;
-    }
-  }
-
-  if(!targetClass){
-    alert('Bu kişiye ait sınıf bulunamadı.');
-    return;
-  }
-
   closeDropdown();
-  // Aranan isim ve hangi grup vurgulanacak — global state
-  window.__searchMatch = { match: m, grupNo, targetClass };
-  openClass(targetClass);
+  openPersonView(m);
 }
 
 function closeDropdown(){
   document.getElementById('dropdown').classList.remove('visible');
+}
+
+// ---------- KİŞİ SAYFASI ----------
+// Tüm sınıf-derslerde bu kişinin/grubun bulunduğu satırları çıkar
+function findPersonAssignments(match){
+  // key: className|ders|role -> { className, ders, saat, role, gorevliOgretmen, ownGroups }
+  const map = new Map();
+  const grupSet = new Set(match.gruplar);
+
+  for(const [className, lessons] of Object.entries(DATA.classes)){
+    for(const l of lessons){
+      // Sunum tarafı
+      const sunumOwnGroups = l.sunum.filter(g => grupSet.has(g));
+      if(sunumOwnGroups.length > 0){
+        const key = `${className}|${l.ders}|sunum`;
+        map.set(key, {
+          className, ders: l.ders, saat: l.saat,
+          role: 'sunum', ownGroups: sunumOwnGroups,
+          gorevliOgretmen: l.sunum_ogretmen,
+        });
+      }
+      // İzleyici tarafı
+      const izleOwnGroups = l.izleyici.filter(g => grupSet.has(g));
+      if(izleOwnGroups.length > 0){
+        const key = `${className}|${l.ders}|izleyici`;
+        map.set(key, {
+          className, ders: l.ders, saat: l.saat,
+          role: 'izleyici', ownGroups: izleOwnGroups,
+          gorevliOgretmen: l.izleyici_ogretmen,
+        });
+      }
+    }
+  }
+
+  // Öğretmen ise: kendi grupları olmasa da Görevli Öğretmen olarak atanmış olabilir (override)
+  if(match.type === 'ogretmen'){
+    for(const [className, lessons] of Object.entries(DATA.classes)){
+      for(const l of lessons){
+        if(l.sunum_ogretmen && l.sunum_ogretmen.split(' / ').includes(match.name)){
+          const key = `${className}|${l.ders}|sunum`;
+          if(!map.has(key)){
+            map.set(key, {
+              className, ders: l.ders, saat: l.saat,
+              role: 'sunum', ownGroups: [],
+              gorevliOgretmen: l.sunum_ogretmen,
+              asTeacher: true,
+            });
+          }
+        }
+        if(l.izleyici_ogretmen && l.izleyici_ogretmen.split(' / ').includes(match.name)){
+          const key = `${className}|${l.ders}|izleyici`;
+          if(!map.has(key)){
+            map.set(key, {
+              className, ders: l.ders, saat: l.saat,
+              role: 'izleyici', ownGroups: [],
+              gorevliOgretmen: l.izleyici_ogretmen,
+              asTeacher: true,
+            });
+          }
+        }
+      }
+    }
+  }
+
+  // Saate göre sırala
+  const LESSON_ORDER = {"2. Ders":2,"3. Ders":3,"4. Ders":4,"5. Ders":5,"6. Ders":6,"7. Ders":7,"8. Ders":8,"9. Ders":9};
+  const result = Array.from(map.values());
+  result.sort((a,b) => (LESSON_ORDER[a.ders]||0) - (LESSON_ORDER[b.ders]||0));
+  return result;
+}
+
+const CLASS_LABELS_FULL = {
+  "9A":"9. Sınıf A", "9B":"9. Sınıf B",
+  "10A":"10. Sınıf A","10B":"10. Sınıf B","10C":"10. Sınıf C",
+  "Hz":"Hazırlık",
+  "11A":"11. Sınıf A","11B":"11. Sınıf B","11C":"11. Sınıf C",
+  "9FL":"9. Sınıf FL","10FL":"10. Sınıf FL","11FL":"11. Sınıf FL"
+};
+
+function openPersonView(match){
+  document.body.classList.add('detail-active');
+  document.getElementById('detailPage').classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+
+  // hash: kişi adını URL'e koy (paylaşılabilir olsun)
+  window.__suppressHash = true;
+  const slug = '@' + encodeURIComponent(match.name);
+  if(location.hash !== '#' + slug) {
+    history.replaceState(null, '', '#' + slug);
+  }
+  setTimeout(() => { window.__suppressHash = false; }, 100);
+
+  const assignments = findPersonAssignments(match);
+  const nowKey = currentLessonKey();
+
+  // Personel başlığı
+  const typeLabel = match.type === 'ogretmen' ? 'Öğretmen' : 'Öğrenci';
+  let subInfo;
+  if(match.type === 'ogrenci'){
+    subInfo = `Grup ${match.gruplar[0]} · ${DATA.groups[match.gruplar[0]].brans}`;
+  } else if(match.gruplar.length > 0){
+    subInfo = `${match.gruplar.length} grubun sorumlu öğretmeni`;
+  } else {
+    subInfo = `PROJİST Fest '26 görevli öğretmeni`;
+  }
+
+  let html = `
+    <div class="detail-header fade-in person-header">
+      <div class="label">PROJİST · Kişisel Görev Programı</div>
+      <h2>${match.name}</h2>
+      <p>${typeLabel} · ${subInfo}</p>
+    </div>
+  `;
+
+  if(assignments.length === 0){
+    html += `
+      <div class="empty-state fade-in">
+        <div class="empty-icon">📭</div>
+        <div class="empty-title">Görev bulunamadı</div>
+        <div class="empty-text">${match.name} için planlanmış bir sunum veya izleme görevi yok.</div>
+      </div>
+    `;
+  } else {
+    // Görevleri saate göre listele
+    html += `<div class="person-tasks">`;
+    html += assignments.map(a => personTaskCard(a, match, nowKey)).join('');
+    html += `</div>`;
+  }
+
+  document.getElementById('detailContent').innerHTML = html;
+  // arama state'i temizle
+  window.__searchMatch = null;
+}
+
+function personTaskCard(a, match, nowKey){
+  const isNow = a.ders === nowKey;
+  const roleLabel = a.role === 'sunum' ? 'SUNUM YAPACAK' : 'İZLEYECEK';
+  const roleClass = a.role === 'sunum' ? 'sunum' : 'izleyici';
+
+  // Hangi grupları göstereceğiz?
+  let groupsToShow = [];
+  if(a.asTeacher){
+    // Override öğretmeni: bu kutudaki TÜM grupları göster
+    const lessonObj = DATA.classes[a.className].find(l => l.ders === a.ders);
+    groupsToShow = a.role === 'sunum' ? lessonObj.sunum : lessonObj.izleyici;
+  } else {
+    // Kişinin kendi grupları
+    groupsToShow = a.ownGroups;
+  }
+
+  const ownSet = new Set(a.ownGroups || []);
+
+  const groupsHtml = groupsToShow.map(gn => {
+    const gg = DATA.groups[gn];
+    const isOwnGroup = ownSet.has(gn);
+    const studentsHtml = (match.type === 'ogrenci' && gg.ogrenciler.includes(match.name))
+      ? gg.ogrenciler.replace(match.name, `<mark>${match.name}</mark>`)
+      : gg.ogrenciler;
+    return `
+      <div class="task-group ${isOwnGroup ? 'own' : ''}">
+        <div class="task-group-num">${gn}</div>
+        <div class="task-group-body">
+          <div class="task-group-brans">${gg.brans}</div>
+          <div class="task-group-students">${studentsHtml}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  return `
+    <div class="task-card ${roleClass} ${isNow ? 'is-now' : ''} fade-in">
+      <div class="task-time-col">
+        <div class="task-ders">${a.ders.replace('. Ders','.')}</div>
+        <div class="task-saat">${a.saat}</div>
+        ${isNow ? '<span class="task-now-pill">Şu an</span>' : ''}
+      </div>
+      <div class="task-content">
+        <div class="task-header">
+          <div class="task-class-wrap">
+            <span class="task-class">${a.className}</span>
+            <span class="task-class-label">${CLASS_LABELS_FULL[a.className] || ''}</span>
+          </div>
+          <span class="task-role-pill ${roleClass}">${roleLabel}</span>
+        </div>
+        ${a.asTeacher ? '<div class="task-as-teacher">Görevli öğretmen olarak atandı</div>' : ''}
+        <div class="task-groups">${groupsHtml}</div>
+        ${match.type === 'ogrenci' || a.asTeacher ? '' : `<div class="task-teacher-line">Görevli Öğretmen: <b>${a.gorevliOgretmen}</b></div>`}
+      </div>
+    </div>
+  `;
 }
 
 // Input
@@ -977,17 +1379,39 @@ function updateHighlight(items){
 // ---------- CLASS GRID ----------
 function renderClassGrid(){
   const grid = document.getElementById('classGrid');
-  grid.innerHTML = CLASS_ORDER.map(c => {
-    const lessons = DATA.classes[c];
-    const firstLesson = lessons[0].ders;
-    const lastLesson = lessons[lessons.length-1].ders;
-    return `
-      <a class="class-card" href="#${c}" onclick="openClass('${c}'); return false;">
-        <div><div class="name">${c}</div></div>
-        <div class="badge">${firstLesson.replace('. Ders','')}–${lastLesson.replace('. Ders','')}. ders</div>
-      </a>
+  const groups = DATA.class_groups || {
+    "Sabah Oturumu": ["9A","9B","10A","10B","10C","Hz"],
+    "Öğle Oturumu":  ["11A","11B","11C","9FL","10FL","11FL"],
+  };
+  let html = '';
+  for(const [groupName, classes] of Object.entries(groups)){
+    // Oturum saatleri için ilk sınıfın ilk ve son dersinden tahmin et
+    const firstClass = DATA.classes[classes[0]];
+    const firstHour = firstClass[0].saat.split(' – ')[0];
+    const lastHour = firstClass[firstClass.length-1].saat.split(' – ')[1];
+    html += `
+      <div class="session-block">
+        <div class="session-head">
+          <span class="session-name">${groupName}</span>
+          <span class="session-time">${firstHour} – ${lastHour}</span>
+        </div>
+        <div class="class-grid">
+          ${classes.map(c => {
+            const lessons = DATA.classes[c];
+            const firstLesson = lessons[0].ders;
+            const lastLesson = lessons[lessons.length-1].ders;
+            return `
+              <a class="class-card" href="#${c}" onclick="openClass('${c}'); return false;">
+                <div><div class="name">${c}</div></div>
+                <div class="badge">${firstLesson.replace('. Ders','')}–${lastLesson.replace('. Ders','')}. ders</div>
+              </a>
+            `;
+          }).join('')}
+        </div>
+      </div>
     `;
-  }).join('');
+  }
+  grid.innerHTML = html;
 }
 
 // ---------- DETAIL ----------
@@ -1056,8 +1480,8 @@ function openClass(className){
 }
 
 function renderLesson(l, isNow, className){
-  const sunumOgr = teacherOfGroupList(l.sunum);
-  const izleOgr = teacherOfGroupList(l.izleyici);
+  const sunumOgr = l.sunum_ogretmen || teacherOfGroupList(l.sunum);
+  const izleOgr = l.izleyici_ogretmen || teacherOfGroupList(l.izleyici);
   return `
     <div class="lesson fade-in ${isNow ? 'is-now' : ''}">
       <div class="lesson-head">
@@ -1174,18 +1598,25 @@ updateNowBar();
 setInterval(updateNowBar, 30000);
 
 // hash routing
-if(location.hash){
-  const c = location.hash.slice(1);
-  if(DATA.classes[c]) openClass(c);
+function handleHash(){
+  if(!location.hash) {
+    goHome();
+    return;
+  }
+  const h = location.hash.slice(1);
+  if(h.startsWith('@')){
+    // Kişi sayfası
+    const name = decodeURIComponent(h.slice(1));
+    const m = SEARCH_INDEX.find(x => x.name === name);
+    if(m) openPersonView(m);
+  } else if(DATA.classes[h]){
+    openClass(h);
+  }
 }
+handleHash();
 window.addEventListener('hashchange', ()=>{
   if(window.__suppressHash) return;
-  if(location.hash){
-    const c = location.hash.slice(1);
-    if(DATA.classes[c]) openClass(c);
-  } else {
-    goHome();
-  }
+  handleHash();
 });
 </script>
 </body>
